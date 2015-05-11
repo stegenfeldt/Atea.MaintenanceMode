@@ -71,7 +71,6 @@
     <Folder Include="Scripts" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Scripts\AteaMMNotificationScript.ps1" />
     <EmbeddedResource Include="Scripts\Set-MaintenanceMode.ps1" />
   </ItemGroup>
   <ItemGroup>
