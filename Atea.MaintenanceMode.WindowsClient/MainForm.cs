@@ -74,6 +74,13 @@ namespace Atea_Request_Maintenance_Mode
 			// Set the Current user information
 			tbCurrentUser.Text = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
 			btStopMaintenance.Visible = false;
+
+            //TODO: Load custom logo if available
+            String logoPath = Application.StartupPath + @"\logo.png";
+            if (System.IO.File.Exists(logoPath))
+            {
+                this.BackgroundImage = Image.FromFile(logoPath);
+            }
 		}
 		
 		void TbCommentTextChanged(object sender, EventArgs e)
