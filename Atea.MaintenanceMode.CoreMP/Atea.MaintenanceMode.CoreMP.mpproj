@@ -56,13 +56,32 @@
     <Content Include="AteaST.snk">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="HealthModel\Rules\MaintenanceModeRules.mptg">
+      <SubType>Content</SubType>
+      <Generator>FragmentGenerator</Generator>
+    </Content>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="HealthModel" />
+    <Folder Include="HealthModel\Rules" />
+    <Folder Include="Presentation" />
+    <Folder Include="Presentation\Advanced" />
+    <Folder Include="Presentation\Advanced\Folders" />
+    <Folder Include="Presentation\Views" />
     <Folder Include="Scripts" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Scripts\AteaMMNotificationScript.ps1" />
     <EmbeddedResource Include="Scripts\Set-MaintenanceMode.ps1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="HealthModel\Rules\MaintenanceModeRules.mptg.mpx">
+      <SubType>Code</SubType>
+      <DependentUpon>HealthModel\Rules\MaintenanceModeRules.mptg</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Advanced\Folders\AteaMMFolder.mpx">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\VSAC\Microsoft.SystemCenter.OperationsManager.targets" />
 </Project>

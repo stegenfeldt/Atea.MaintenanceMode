@@ -28,71 +28,8 @@
       </Reference>
     </References>
   </Manifest>
-  <Monitoring>
-    <Rules>
-      <Rule ID="Atea.Agent.StartMMTrigger.Event" Enabled="true" Target="Windows!Microsoft.Windows.Server.Computer" ConfirmDelivery="true" Remotable="true" Priority="Normal" DiscardLevel="100">
-        <Category>Alert</Category>
-        <DataSources>
-          <DataSource ID="DS" TypeID="Windows!Microsoft.Windows.EventProvider">
-            <ComputerName>$Target/Property[Type="Windows!Microsoft.Windows.Computer"]/NetworkName$</ComputerName>
-            <LogName>Operations Manager</LogName>
-            <Expression>
-              <And>
-                <Expression>
-                  <SimpleExpression>
-                    <ValueExpression>
-                      <XPathQuery Type="UnsignedInteger">EventDisplayNumber</XPathQuery>
-                    </ValueExpression>
-                    <Operator>Equal</Operator>
-                    <ValueExpression>
-                      <Value Type="UnsignedInteger">997</Value>
-                    </ValueExpression>
-                  </SimpleExpression>
-                </Expression>
-                <Expression>
-                  <SimpleExpression>
-                    <ValueExpression>
-                      <XPathQuery Type="String">PublisherName</XPathQuery>
-                    </ValueExpression>
-                    <Operator>Equal</Operator>
-                    <ValueExpression>
-                      <Value Type="String">AteaRequestMM</Value>
-                    </ValueExpression>
-                  </SimpleExpression>
-                </Expression>
-              </And>
-            </Expression>
-          </DataSource>
-        </DataSources>
-        <WriteActions>
-          <WriteAction ID="Alert" TypeID="Health!System.Health.GenerateAlert">
-            <Priority>0</Priority>
-            <Severity>0</Severity>
-            <AlertOwner />
-            <AlertMessageId>$MPElement[Name="Atea.Agent.StartMMTrigger.Event.AlertMessage"]$</AlertMessageId>
-            <AlertParameters>
-              <AlertParameter1>$Data/EventDescription$</AlertParameter1>
-            </AlertParameters>
-            <Custom1 />
-            <Custom2 />
-            <Custom3 />
-            <Custom4 />
-            <Custom5 />
-            <Custom6 />
-            <Custom7 />
-            <Custom8 />
-            <Custom9 />
-            <Custom10 />
-          </WriteAction>
-        </WriteActions>
-      </Rule>
-    </Rules>
-  </Monitoring>
-  <Presentation>
-    <StringResources>
-      <StringResource ID="Atea.Agent.StartMMTrigger.Event.AlertMessage" />
-    </StringResources>
-  </Presentation>
+
+
   <LanguagePacks>
     <LanguagePack ID="ENU" IsDefault="true">
       <DisplayStrings>
@@ -100,14 +37,7 @@
           <Name>Atea Agent Maintenance Mode</Name>
           <Description>Utility management pack that trigger an informational alert on a specific EventID. Powershell scripts on the Management Servers react to this event and sets the alerting agent in maintenance mode for a specified time.</Description>
         </DisplayString>
-        <DisplayString ElementID="Atea.Agent.StartMMTrigger.Event">
-          <Name>Atea Agent Maintenance Mode Trigger event</Name>
-          <Description>Event based alert that trigger maintenance mode.</Description>
-        </DisplayString>
-        <DisplayString ElementID="Atea.Agent.StartMMTrigger.Event.AlertMessage">
-          <Name>Agent Maintenance Mode has been requested</Name>
-          <Description>{0}</Description>
-        </DisplayString>
+
       </DisplayStrings>
     </LanguagePack>
     <LanguagePack ID="SVE" IsDefault="false">
