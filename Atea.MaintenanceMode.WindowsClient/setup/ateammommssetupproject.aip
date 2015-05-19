@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <DOCUMENT Type="Advanced Installer" CreateVersion="9.9" version="12.0" Modules="simple" RootPath="." Language="en" Id="{13EF2589-B5AD-43B2-8EB7-1E408CBE5CBC}">
   <COMPONENT cid="caphyon.advinst.msicomp.MsiValidationComponent">
-    <ROW Table="File" Column="Sequence" MinValue="1" MaxValue="32767" Description="Sequence with respect to the media images; order must track cabinet order." Options="0" ColumnType="2" ColumnIndex="7" ColumnSize="2" MsiKey="File#Sequence"/>
-    <ROW Table="Media" Column="LastSequence" MinValue="0" MaxValue="32767" Description="File sequence number for the last file for this media." Options="0" ColumnType="2" ColumnIndex="1" ColumnSize="2" MsiKey="Media#LastSequence"/>
+    <ROW Table="File" Column="Sequence" MinValue="1" MaxValue="2147483647" Description="Sequence with respect to the media images; order must track cabinet order." Options="0" ColumnType="3" ColumnIndex="7" ColumnSize="4" MsiKey="File#Sequence"/>
+    <ROW Table="Media" Column="LastSequence" MinValue="0" MaxValue="2147483647" Description="File sequence number for the last file for this media." Options="0" ColumnType="3" ColumnIndex="1" ColumnSize="4" MsiKey="Media#LastSequence"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiPropsComponent">
     <ROW Property="AI_BITMAP_DISPLAY_MODE" Value="0"/>
@@ -10,16 +10,19 @@
     <ROW Property="AI_PATH_VALIDATION_OPT" Value="2"/>
     <ROW Property="ALLUSERS" Value="1"/>
     <ROW Property="ARPCOMMENTS" Value="This installer database contains the logic and data required to install [|ProductName]." ValueLocId="*"/>
+    <ROW Property="ARPNOMODIFY" MultiBuildValue="DefaultBuild:1"/>
     <ROW Property="ARPPRODUCTICON" Value="construction.exe" Type="8"/>
+    <ROW Property="CTRLS" Value="1"/>
     <ROW Property="MSIFASTINSTALL" MultiBuildValue="DefaultBuild:2"/>
     <ROW Property="Manufacturer" Value="Atea Sverige AB"/>
     <ROW Property="ProductCode" Value="1033:{203B89D2-0509-41E2-BEC9-40333A5F615E} " Type="16"/>
     <ROW Property="ProductLanguage" Value="1033"/>
     <ROW Property="ProductName" Value="Request Maintenance Mode - SCOM MP Package"/>
-    <ROW Property="ProductVersion" Value="1.1.0" Type="32"/>
+    <ROW Property="ProductVersion" Value="1.0.0.9" Type="32"/>
     <ROW Property="REBOOT" MultiBuildValue="DefaultBuild:ReallySuppress"/>
     <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS;AI_NEWERPRODUCTFOUND"/>
     <ROW Property="UpgradeCode" Value="{31B94D22-8C44-4CF4-BB0E-270F2AB7ECEC}"/>
+    <ROW Property="VIEWREADME" Value="1" Type="4"/>
     <ROW Property="WindowsType9X" MultiBuildValue="DefaultBuild:Windows 9x/ME" ValueLocId="-"/>
     <ROW Property="WindowsType9XDisplay" MultiBuildValue="DefaultBuild:Windows 9x/ME" ValueLocId="-"/>
     <ROW Property="WindowsTypeNT" MultiBuildValue="DefaultBuild:Windows 9x/ME/NT/2000/XP/Vista/Windows 7/Windows 8 x86/Windows 8.1 x86" ValueLocId="-"/>
@@ -31,11 +34,11 @@
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiDirsComponent">
     <ROW Directory="APPDIR" Directory_Parent="TARGETDIR" DefaultDir="APPDIR:." IsPseudoRoot="1"/>
-    <ROW Directory="ManagementPacks_Dir" Directory_Parent="APPDIR" DefaultDir="Manage~1|Management Packs"/>
+    <ROW Directory="ManagementPacks_Dir" Directory_Parent="APPDIR" DefaultDir="Manage~1|Management Packs" DirectoryOptions="3"/>
     <ROW Directory="TARGETDIR" DefaultDir="SourceDir"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiCompsComponent">
-    <ROW Component="Atea.Agent.MaintenanceMode.mp" ComponentId="{E69191F1-3B46-4E3E-A8C7-085EA64E335A}" Directory_="ManagementPacks_Dir" Attributes="0" KeyPath="Atea.Agent.MaintenanceMode.mp" Type="0"/>
+    <ROW Component="Atea.Agent.MaintenanceMode.mp" ComponentId="{E69191F1-3B46-4E3E-A8C7-085EA64E335A}" Directory_="ManagementPacks_Dir" Attributes="0" KeyPath="Atea.MaintenanceMode.CoreMP.mp" Type="0"/>
     <ROW Component="ProductInformation" ComponentId="{EEF6C80F-7CB5-4D31-B601-A1A1C6F01145}" Directory_="APPDIR" Attributes="4" KeyPath="Version"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiFeatsComponent">
@@ -43,11 +46,12 @@
     <ATTRIBUTE name="CurrentFeature" value="MainFeature"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiFilesComponent">
-    <ROW File="Atea.Agent.MaintenanceMode.mp" Component_="Atea.Agent.MaintenanceMode.mp" FileName="ATEAMA~1.MP|Atea.MaintenanceMode.WindowsMP.mp" Attributes="0" SourcePath="..\..\Atea.MaintenanceMode.WindowsMP\bin\Release\Atea.MaintenanceMode.WindowsMP.mp" SelfReg="false" NextFile="Atea.MaintenanceMode.CoreMP.mp"/>
-    <ROW File="Atea.MaintenanceMode.CoreMP.mp" Component_="Atea.Agent.MaintenanceMode.mp" FileName="ATEAMA~2.MP|Atea.MaintenanceMode.CoreMP.mp" Attributes="0" SourcePath="..\..\Atea.MaintenanceMode.CoreMP\bin\Release\Atea.MaintenanceMode.CoreMP.mp" SelfReg="false"/>
+    <ROW File="Atea.MaintenanceMode.CoreMP.mp" Component_="Atea.Agent.MaintenanceMode.mp" FileName="ATEAMA~2.MP|Atea.MaintenanceMode.CoreMP.mp" Version="65535.65535.65535.65535" Attributes="0" SourcePath="..\..\Atea.MaintenanceMode.CoreMP\bin\Release\Atea.MaintenanceMode.CoreMP.mp" SelfReg="false" NextFile="Atea.MaintenanceMode.WindowsMP.mp"/>
+    <ROW File="Atea.MaintenanceMode.WindowsMP.mp" Component_="Atea.Agent.MaintenanceMode.mp" FileName="ATEAMA~1.MP|Atea.MaintenanceMode.WindowsMP.mp" Version="65535.65535.65535.65535" Attributes="0" SourcePath="..\..\Atea.MaintenanceMode.WindowsMP\bin\Release\Atea.MaintenanceMode.WindowsMP.mp" SelfReg="false" NextFile="readme.txt"/>
+    <ROW File="readme.txt" Component_="Atea.Agent.MaintenanceMode.mp" FileName="readme.txt" Version="65535.65535.65535.65535" Attributes="0" SourcePath="readme.txt" SelfReg="false"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.BuildComponent">
-    <ROW BuildKey="DefaultBuild" BuildName="DefaultBuild" BuildOrder="1" BuildType="0" PackageFolder="." PackageFileName="Atea_MM_OMMS_Setup" Languages="en" InstallationType="4" UseLargeSchema="true"/>
+    <ROW BuildKey="DefaultBuild" BuildName="DefaultBuild" BuildOrder="1" BuildType="0" PackageFolder="." PackageFileName="Atea_MM_MP_Package" Languages="en" InstallationType="4" UseLargeSchema="true"/>
     <ATTRIBUTE name="CurrentBuild" value="DefaultBuild"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.DictionaryComponent">
@@ -108,11 +112,13 @@
     <ROW Action="AI_DpiContentScale" Type="1" Source="aicustact.dll" Target="DpiContentScale"/>
     <ROW Action="AI_InstallModeCheck" Type="1" Source="aicustact.dll" Target="UpdateInstallMode" WithoutSeq="true"/>
     <ROW Action="AI_PREPARE_UPGRADE" Type="65" Source="aicustact.dll" Target="PrepareUpgrade"/>
+    <ROW Action="AI_RESTORE_LOCATION" Type="65" Source="aicustact.dll" Target="RestoreLocation"/>
     <ROW Action="AI_ResolveKnownFolders" Type="1" Source="aicustact.dll" Target="AI_ResolveKnownFolders"/>
     <ROW Action="AI_SHOW_LOG" Type="65" Source="aicustact.dll" Target="LaunchLogFile" WithoutSeq="true"/>
     <ROW Action="AI_STORE_LOCATION" Type="51" Source="ARPINSTALLLOCATION" Target="[APPDIR]"/>
     <ROW Action="AI_ValidateInstallPath" Type="1" Source="aicustact.dll" Target="ValidateInstallFolder" WithoutSeq="true"/>
-    <ROW Action="SET_APPDIR" Type="307" Source="APPDIR" Target="[ProgramFilesFolder][Manufacturer]\[ProductName]" MultiBuildTarget="DefaultBuild:[WindowsVolume]Atea\RequestMM"/>
+    <ROW Action="AI_ViewReadme" Type="1" Source="aicustact.dll" Target="[#readme.txt]"/>
+    <ROW Action="SET_APPDIR" Type="307" Source="APPDIR" Target="[ProgramFilesFolder][Manufacturer]\[ProductName]"/>
     <ROW Action="SET_SHORTCUTDIR" Type="307" Source="SHORTCUTDIR" Target="[ProgramMenuFolder][ProductName]"/>
     <ROW Action="SET_TARGETDIR_TO_APPDIR" Type="51" Source="TARGETDIR" Target="[APPDIR]"/>
   </COMPONENT>
@@ -124,10 +130,12 @@
     <ROW Action="AI_STORE_LOCATION" Condition="(Not Installed) OR REINSTALL" Sequence="1501"/>
     <ROW Action="AI_PREPARE_UPGRADE" Condition="AI_UPGRADE=&quot;No&quot; AND (Not Installed)" Sequence="1399"/>
     <ROW Action="AI_ResolveKnownFolders" Sequence="51"/>
+    <ROW Action="AI_RESTORE_LOCATION" Condition="APPDIR=&quot;&quot;" Sequence="749"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiInstallUISequenceComponent">
     <ROW Action="AI_ResolveKnownFolders" Sequence="52"/>
     <ROW Action="AI_DpiContentScale" Sequence="51"/>
+    <ROW Action="AI_RESTORE_LOCATION" Condition="APPDIR=&quot;&quot;" Sequence="749"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiLaunchConditionsComponent">
     <ROW Condition="( Version9X OR ( NOT VersionNT64 ) OR ( VersionNT64 AND ((VersionNT64 &lt;&gt; 502) OR (((VersionNT64 = 502) AND (ServicePackLevel &gt;= 1)) OR (MsiNTProductType &lt;&gt; 1))) AND ((VersionNT64 &lt;&gt; 502) OR (((VersionNT64 = 502) AND (ServicePackLevel &lt;&gt; 1)) OR (MsiNTProductType &lt;&gt; 1))) AND ((VersionNT64 &lt;&gt; 502) OR (((VersionNT64 = 502) AND (ServicePackLevel &lt;&gt; 2)) OR (MsiNTProductType &lt;&gt; 1))) AND ((VersionNT64 &lt;&gt; 502) OR ((VersionNT64 = 502) AND ((MsiNTProductType = 1) OR (ServicePackLevel &gt;= 1)))) AND ((VersionNT64 &lt;&gt; 502) OR ((VersionNT64 = 502) AND ((MsiNTProductType = 1) OR (ServicePackLevel &lt;&gt; 1)))) AND ((VersionNT64 &lt;&gt; 502) OR ((VersionNT64 = 502) AND ((MsiNTProductType = 1) OR (ServicePackLevel &lt;&gt; 2)))) AND ((VersionNT64 &lt;&gt; 600) OR (((VersionNT64 = 600) AND (ServicePackLevel &gt;= 1)) OR (MsiNTProductType &lt;&gt; 1))) AND ((VersionNT64 &lt;&gt; 600) OR (((VersionNT64 = 600) AND (ServicePackLevel &lt;&gt; 1)) OR (MsiNTProductType &lt;&gt; 1))) AND ((VersionNT64 &lt;&gt; 600) OR (((VersionNT64 = 600) AND (ServicePackLevel &lt;&gt; 2)) OR (MsiNTProductType &lt;&gt; 1))) AND ((VersionNT64 &lt;&gt; 600) OR ((VersionNT64 = 600) AND (MsiNTProductType = 1))) AND ((VersionNT64 &lt;&gt; 601) OR ((VersionNT64 = 601) AND ((ServicePackLevel &gt;= 1) OR (MsiNTProductType &lt;&gt; 1)))) AND ((VersionNT64 &lt;&gt; 601) OR (((VersionNT64 = 601) AND (ServicePackLevel &lt;&gt; 1)) OR (MsiNTProductType &lt;&gt; 1))) AND ((VersionNT64 &lt;&gt; 602) OR ((VersionNT64 = 602) AND ((ServicePackLevel &gt;= 1) OR (MsiNTProductType &lt;&gt; 1)))) ) )" Description="[ProductName] cannot be installed on the following Windows versions: [WindowsTypeNT64Display]" DescriptionLocId="AI.LaunchCondition.NoSpecificNT64" IsPredefined="true" Builds="DefaultBuild"/>
