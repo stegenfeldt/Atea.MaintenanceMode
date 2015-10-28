@@ -15,6 +15,8 @@ $mmAlertRule = Get-SCOMRule -Name "Atea.MaintenanceMode.WindowsMP.StartMMAlertRu
 $mmRequests = Get-SCOMAlert -ResolutionState 0,249 -Severity 0 -Priority 0 | Where {$_.RuleId -eq $mmAlertRule.Id}
 $scomManagementServers = Get-SCOMManagementServer
 
+$omApi.LogScriptEvent("Log-MaintenanceMode.ps1",998,0,("Checking for Maintenance Mode requests, found {0}" -f $mmRequests.Count))
+
 foreach ($mmRequest in $mmRequests) {
 	# Define the "checkpoint" variable. 
 	# If this is not $true, maintenance mode will not be enabled
