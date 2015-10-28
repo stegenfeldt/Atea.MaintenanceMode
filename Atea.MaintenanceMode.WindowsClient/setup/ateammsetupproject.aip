@@ -6,7 +6,7 @@
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiPropsComponent">
     <ROW Property="AI_BITMAP_DISPLAY_MODE" Value="0"/>
-    <ROW Property="AI_MINDOTNETVERSION" MultiBuildValue="DefaultBuild:4.0 Client Profile" ValueLocId="-"/>
+    <ROW Property="AI_MINDOTNETVERSION" MultiBuildValue="DefaultBuild:3.5" ValueLocId="-"/>
     <ROW Property="ALLUSERS" Value="1"/>
     <ROW Property="ARPCOMMENTS" Value="This installer database contains the logic and data required to install [|ProductName]." ValueLocId="*"/>
     <ROW Property="ARPPRODUCTICON" Value="construction.exe" Type="8"/>
@@ -71,6 +71,8 @@
     <ROW Fragment="WelcomeDlg.aip" Path="&lt;AI_THEMES&gt;classic\fragments\WelcomeDlg.aip"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiAppSearchComponent">
+    <ROW Property="AI_DOTNET35_CLIENTPROFILE_SEARCH" Signature_="AI_DotNet35ClientProfileSearchSgn" Builds="DefaultBuild"/>
+    <ROW Property="AI_DOTNET35_SEARCH" Signature_="AI_DotNet35SearchSgn" Builds="DefaultBuild"/>
     <ROW Property="AI_DOTNET40_CLIENTPROFILE_SEARCH" Signature_="AI_DotNet40ClientProfileSearchSgn" Builds="DefaultBuild"/>
     <ROW Property="AI_DOTNET40_SEARCH" Signature_="AI_DotNet40SearchSgn" Builds="DefaultBuild"/>
     <ROW Property="AI_DOTNET451_SEARCH" Signature_="AI_DotNet451SearchSgn" Builds="DefaultBuild"/>
@@ -133,11 +135,13 @@
   <COMPONENT cid="caphyon.advinst.msicomp.MsiLaunchConditionsComponent">
     <ROW Condition="( Version9X OR ( NOT VersionNT64 ) OR ( VersionNT64 AND ((VersionNT64 &lt;&gt; 502) OR (((VersionNT64 = 502) AND (ServicePackLevel &gt;= 1)) OR (MsiNTProductType &lt;&gt; 1))) AND ((VersionNT64 &lt;&gt; 502) OR (((VersionNT64 = 502) AND (ServicePackLevel &lt;&gt; 1)) OR (MsiNTProductType &lt;&gt; 1))) AND ((VersionNT64 &lt;&gt; 502) OR (((VersionNT64 = 502) AND (ServicePackLevel &lt;&gt; 2)) OR (MsiNTProductType &lt;&gt; 1))) ) )" Description="[ProductName] cannot be installed on the following Windows versions: [WindowsTypeNT64Display]" DescriptionLocId="AI.LaunchCondition.NoSpecificNT64" IsPredefined="true" Builds="DefaultBuild"/>
     <ROW Condition="( Version9X OR VersionNT64 OR ( VersionNT AND ((VersionNT &lt;&gt; 500) OR ((VersionNT = 500) AND (ServicePackLevel &gt;= 1))) AND ((VersionNT &lt;&gt; 500) OR ((VersionNT = 500) AND (ServicePackLevel &lt;&gt; 1))) AND ((VersionNT &lt;&gt; 500) OR ((VersionNT = 500) AND (ServicePackLevel &lt;&gt; 2))) AND ((VersionNT &lt;&gt; 500) OR ((VersionNT = 500) AND (ServicePackLevel &lt;&gt; 3))) AND ((VersionNT &lt;&gt; 500) OR ((VersionNT = 500) AND (ServicePackLevel &lt;&gt; 4))) AND (((VersionNT &lt;&gt; 501) OR ((VersionNT = 501) AND (ServicePackLevel &gt;= 1))) OR VersionNT64) AND (((VersionNT &lt;&gt; 501) OR ((VersionNT = 501) AND (ServicePackLevel &lt;&gt; 1))) OR VersionNT64) AND (((VersionNT &lt;&gt; 501) OR ((VersionNT = 501) AND (ServicePackLevel &lt;&gt; 2))) OR VersionNT64) AND (((VersionNT &lt;&gt; 501) OR ((VersionNT = 501) AND (ServicePackLevel &lt;&gt; 3))) OR VersionNT64) ) )" Description="[ProductName] cannot be installed on the following Windows versions: [WindowsTypeNTDisplay]" DescriptionLocId="AI.LaunchCondition.NoSpecificNT" IsPredefined="true" Builds="DefaultBuild"/>
-    <ROW Condition="(AI_DOTNET40_CLIENTPROFILE_SEARCH = &quot;#1&quot;) OR (AI_DOTNET40_SEARCH = &quot;#1&quot;) OR (AI_DOTNET45_SEARCH &gt;= &quot;4.5&quot;) OR (AI_DOTNET451_SEARCH &gt;= &quot;#378675&quot;)" Description="[ProductName] cannot be installed on systems with .NET Framework version lower than [AI_MINDOTNETVERSION]" DescriptionLocId="AI.LaunchCondition.DotNET" IsPredefined="true" Builds="DefaultBuild"/>
+    <ROW Condition="(AI_DOTNET35_SEARCH = &quot;#1&quot;) OR (AI_DOTNET35_CLIENTPROFILE_SEARCH = &quot;#1&quot;) OR (AI_DOTNET40_CLIENTPROFILE_SEARCH = &quot;#1&quot;) OR (AI_DOTNET45_SEARCH &gt;= &quot;4.5&quot;) OR (AI_DOTNET451_SEARCH &gt;= &quot;#378675&quot;)" Description="[ProductName] cannot be installed on systems with .NET Framework version lower than [AI_MINDOTNETVERSION]" DescriptionLocId="AI.LaunchCondition.DotNET" IsPredefined="true" Builds="DefaultBuild"/>
     <ROW Condition="(VersionNT &lt;&gt; 400)" Description="[ProductName] cannot be installed on the following Windows versions: [WindowsTypeNT40Display]" DescriptionLocId="AI.LaunchCondition.NoNT40" IsPredefined="true" Builds="DefaultBuild"/>
     <ROW Condition="VersionNT" Description="[ProductName] cannot be installed on [WindowsType9XDisplay]" DescriptionLocId="AI.LaunchCondition.No9X" IsPredefined="true" Builds="DefaultBuild"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiRegLocatorComponent">
+    <ROW Signature_="AI_DotNet35ClientProfileSearchSgn" Root="2" Key="SOFTWARE\Microsoft\NET Framework Setup\DotNetClient\v3.5" Name="Install" Type="2"/>
+    <ROW Signature_="AI_DotNet35SearchSgn" Root="2" Key="SOFTWARE\Microsoft\NET Framework Setup\NDP\v3.5" Name="Install" Type="2"/>
     <ROW Signature_="AI_DotNet40ClientProfileSearchSgn" Root="2" Key="SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Client" Name="Install" Type="2"/>
     <ROW Signature_="AI_DotNet40SearchSgn" Root="2" Key="SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Full" Name="Install" Type="2"/>
     <ROW Signature_="AI_DotNet451SearchSgn" Root="2" Key="SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Full" Name="Release" Type="2"/>
