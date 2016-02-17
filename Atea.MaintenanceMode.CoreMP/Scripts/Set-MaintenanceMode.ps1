@@ -2,12 +2,16 @@
 $rsCloseAlert = "255"
 
 ## Create and instantiate SCOM object
+<#
 If ((Get-Module).Name -eq "OperationsManager") {
 	New-SCOMManagementGroupConnection -ComputerName localhost
 } else {
+	#>
 	Import-Module -Name OperationsManager
 	New-SCOMManagementGroupConnection -ComputerName localhost
+<#
 }
+#>
 
 $omApi = New-Object -ComObject 'MOM.ScriptAPI'
 
@@ -26,6 +30,7 @@ foreach ($mmRequest in $mmRequests) {
 	# Set resolution state of alert to "Acknowledged" to signal that
 	# it's being processed.
 	Set-SCOMAlert -Alert $mmRequest -ResolutionState $rsPendingMM -Comment "Verifying request..."
+	#$omApi.LogScriptEvent("Log-MaintenanceMode.ps1",998,0,("Verifying requet {0}" -f $mmRequest.Name))
 
 	## Gather information from Alert
 	$mmRequestTarget = $mmRequest.PrincipalName

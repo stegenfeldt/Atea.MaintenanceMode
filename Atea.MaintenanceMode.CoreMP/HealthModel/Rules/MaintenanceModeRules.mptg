@@ -24,7 +24,9 @@
           <RuleWriteActionItem>
             <WriteActionId>PoSH</WriteActionId>
             <WriteActionConfig>&lt;ScriptName&gt;Set-MaintenanceMode.ps1&lt;/ScriptName&gt;&lt;ScriptBody&gt;$IncludeFileContent/Scripts/Set-MaintenanceMode.ps1$&lt;/ScriptBody&gt;&lt;Parameters&gt;&lt;/Parameters&gt;&lt;TimeoutSeconds&gt;115&lt;/TimeoutSeconds&gt;</WriteActionConfig>
+            <WriteActionRunAs>SC!Microsoft.SystemCenter.LocalAgentElevatedAccount</WriteActionRunAs>
             <WriteActionType>Windows!Microsoft.Windows.PowerShellWriteAction</WriteActionType>
+            <WriteActionTarget />
           </RuleWriteActionItem>
         </WriteActions>
       </CustomRuleConfig>
