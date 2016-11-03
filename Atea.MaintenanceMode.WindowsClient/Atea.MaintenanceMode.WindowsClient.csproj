@@ -8,7 +8,8 @@
     <RootNamespace>Atea_Request_Maintenance_Mode</RootNamespace>
     <AssemblyName>Request Maintenance Mode</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
-    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <NoWin32Manifest>False</NoWin32Manifest>
@@ -57,7 +58,7 @@
     <ManifestKeyFile>Request Maintenance Mode_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
-    <GenerateManifests>false</GenerateManifests>
+    <GenerateManifests>true</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup>
     <SignManifests>false</SignManifests>
@@ -70,6 +71,15 @@
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>construction.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <DocumentationFile>bin\Release\Request Maintenance Mode.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>AteaST.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -88,7 +98,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ColoredProgressBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ColoredProgressBar.Designer.cs">
+      <DependentUpon>ColoredProgressBar.cs</DependentUpon>
+    </Compile>
     <Compile Include="Eventlog.cs" />
+    <Compile Include="IOpsMMEventLog.cs" />
     <Compile Include="KeyValuePair.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -116,7 +133,7 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="app.manifest" />
-    <None Include="ClassDiagram1.cd" />
+    <None Include="AteaST.snk" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">
