@@ -58,6 +58,7 @@ namespace Atea_Request_Maintenance_Mode
             this.lblStatusMessages = new System.Windows.Forms.Label();
             this.epIllegalComment = new System.Windows.Forms.ErrorProvider(this.components);
             this.tmCheckForACK = new System.Windows.Forms.Timer(this.components);
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             ((System.ComponentModel.ISupportInitialize)(this.epDuration)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.epReason)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.epIllegalComment)).BeginInit();
@@ -67,7 +68,7 @@ namespace Atea_Request_Maintenance_Mode
             // 
             this.cbDuration.DisplayMember = "30";
             this.cbDuration.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbDuration.Location = new System.Drawing.Point(138, 322);
+            this.cbDuration.Location = new System.Drawing.Point(138, 317);
             this.cbDuration.Name = "cbDuration";
             this.cbDuration.Size = new System.Drawing.Size(290, 21);
             this.cbDuration.TabIndex = 2;
@@ -88,7 +89,7 @@ namespace Atea_Request_Maintenance_Mode
             // 
             // lblDuration
             // 
-            this.lblDuration.Location = new System.Drawing.Point(32, 325);
+            this.lblDuration.Location = new System.Drawing.Point(32, 320);
             this.lblDuration.Name = "lblDuration";
             this.lblDuration.Size = new System.Drawing.Size(100, 23);
             this.lblDuration.TabIndex = 1;
@@ -96,7 +97,7 @@ namespace Atea_Request_Maintenance_Mode
             // 
             // lblReason
             // 
-            this.lblReason.Location = new System.Drawing.Point(32, 348);
+            this.lblReason.Location = new System.Drawing.Point(33, 347);
             this.lblReason.Name = "lblReason";
             this.lblReason.Size = new System.Drawing.Size(100, 23);
             this.lblReason.TabIndex = 3;
@@ -105,7 +106,7 @@ namespace Atea_Request_Maintenance_Mode
             // cbReason
             // 
             this.cbReason.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbReason.Location = new System.Drawing.Point(138, 345);
+            this.cbReason.Location = new System.Drawing.Point(138, 344);
             this.cbReason.Name = "cbReason";
             this.cbReason.Size = new System.Drawing.Size(290, 21);
             this.cbReason.TabIndex = 4;
@@ -113,7 +114,7 @@ namespace Atea_Request_Maintenance_Mode
             // 
             // lblComment
             // 
-            this.lblComment.Location = new System.Drawing.Point(32, 371);
+            this.lblComment.Location = new System.Drawing.Point(33, 374);
             this.lblComment.Name = "lblComment";
             this.lblComment.Size = new System.Drawing.Size(100, 23);
             this.lblComment.TabIndex = 5;
@@ -129,7 +130,7 @@ namespace Atea_Request_Maintenance_Mode
             // 
             // lblCurrentUser
             // 
-            this.lblCurrentUser.Location = new System.Drawing.Point(32, 398);
+            this.lblCurrentUser.Location = new System.Drawing.Point(33, 400);
             this.lblCurrentUser.Name = "lblCurrentUser";
             this.lblCurrentUser.Size = new System.Drawing.Size(100, 23);
             this.lblCurrentUser.TabIndex = 7;
@@ -137,16 +138,16 @@ namespace Atea_Request_Maintenance_Mode
             // 
             // tbCurrentUser
             // 
-            this.tbCurrentUser.Location = new System.Drawing.Point(139, 398);
+            this.tbCurrentUser.Location = new System.Drawing.Point(138, 397);
             this.tbCurrentUser.Name = "tbCurrentUser";
             this.tbCurrentUser.ReadOnly = true;
-            this.tbCurrentUser.Size = new System.Drawing.Size(289, 20);
+            this.tbCurrentUser.Size = new System.Drawing.Size(290, 20);
             this.tbCurrentUser.TabIndex = 8;
             this.tbCurrentUser.TabStop = false;
             // 
             // btStartMaintenance
             // 
-            this.btStartMaintenance.Location = new System.Drawing.Point(139, 424);
+            this.btStartMaintenance.Location = new System.Drawing.Point(138, 423);
             this.btStartMaintenance.Name = "btStartMaintenance";
             this.btStartMaintenance.Size = new System.Drawing.Size(110, 23);
             this.btStartMaintenance.TabIndex = 9;
@@ -156,7 +157,7 @@ namespace Atea_Request_Maintenance_Mode
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(461, 424);
+            this.btnCancel.Location = new System.Drawing.Point(462, 424);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 11;
@@ -166,7 +167,7 @@ namespace Atea_Request_Maintenance_Mode
             // 
             // btStopMaintenance
             // 
-            this.btStopMaintenance.Location = new System.Drawing.Point(255, 424);
+            this.btStopMaintenance.Location = new System.Drawing.Point(254, 423);
             this.btStopMaintenance.Name = "btStopMaintenance";
             this.btStopMaintenance.Size = new System.Drawing.Size(110, 23);
             this.btStopMaintenance.TabIndex = 10;
@@ -188,7 +189,7 @@ namespace Atea_Request_Maintenance_Mode
             // 
             this.lblStatusMessages.Font = new System.Drawing.Font("Courier New", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblStatusMessages.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.lblStatusMessages.Location = new System.Drawing.Point(33, 450);
+            this.lblStatusMessages.Location = new System.Drawing.Point(33, 505);
             this.lblStatusMessages.Name = "lblStatusMessages";
             this.lblStatusMessages.Size = new System.Drawing.Size(504, 32);
             this.lblStatusMessages.TabIndex = 12;
@@ -205,6 +206,13 @@ namespace Atea_Request_Maintenance_Mode
             this.tmCheckForACK.Interval = 5000;
             this.tmCheckForACK.Tick += new System.EventHandler(this.TmCheckForACKTick);
             // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(138, 452);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(290, 23);
+            this.progressBar1.TabIndex = 13;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -212,8 +220,9 @@ namespace Atea_Request_Maintenance_Mode
             this.BackColor = System.Drawing.SystemColors.Window;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(570, 492);
+            this.ClientSize = new System.Drawing.Size(570, 547);
             this.ControlBox = false;
+            this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.lblStatusMessages);
             this.Controls.Add(this.btStopMaintenance);
             this.Controls.Add(this.btnCancel);
@@ -393,5 +402,7 @@ namespace Atea_Request_Maintenance_Mode
 				
 			}
 		}
-	}
+
+        private System.Windows.Forms.ProgressBar progressBar1;
+    }
 }
