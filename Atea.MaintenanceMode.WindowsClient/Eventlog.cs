@@ -14,7 +14,7 @@ namespace Atea_Request_Maintenance_Mode
     /// Handles all event log management for the Request Maintenance Mode application
     /// and it's companion Management Pack.
     /// </summary>
-    public class OpsMMEventLog
+    public class OpsMMEventLog : IOpsMMEventLog
     {
         private string opsmgrEventLogName = "Operations Manager";
         private string mmStartSourceName = "AteaRequestMM";
