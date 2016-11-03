@@ -13,8 +13,8 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Atea Sverige AB")]
-[assembly: AssemblyProduct("Request_Maintenance_Mode")]
-[assembly: AssemblyCopyright("Copyright 2013")]
+[assembly: AssemblyProduct("Request Maintenance Mode")]
+[assembly: AssemblyCopyright("Copyright 2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
