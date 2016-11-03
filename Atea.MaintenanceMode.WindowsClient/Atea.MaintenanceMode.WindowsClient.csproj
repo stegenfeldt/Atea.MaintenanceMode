@@ -8,7 +8,8 @@
     <RootNamespace>Atea_Request_Maintenance_Mode</RootNamespace>
     <AssemblyName>Request Maintenance Mode</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
-    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <NoWin32Manifest>False</NoWin32Manifest>
@@ -71,6 +72,15 @@
   <PropertyGroup>
     <ApplicationIcon>construction.ico</ApplicationIcon>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <DocumentationFile>bin\Release\Request Maintenance Mode.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>AteaST.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core">
@@ -88,6 +98,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ColoredProgressBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ColoredProgressBar.Designer.cs">
+      <DependentUpon>ColoredProgressBar.cs</DependentUpon>
+    </Compile>
     <Compile Include="Eventlog.cs" />
     <Compile Include="KeyValuePair.cs" />
     <Compile Include="MainForm.cs">
@@ -116,6 +132,7 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="app.manifest" />
+    <None Include="AteaST.snk" />
     <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <ItemGroup>
