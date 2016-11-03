@@ -1,13 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Atea.MaintenanceMode.WindowsClient", "Atea.MaintenanceMode.WindowsClient\Atea.MaintenanceMode.WindowsClient.csproj", "{36A371D2-3458-4CB6-8101-AEC1A5C80C63}"
 EndProject
 Project("{D4B43EB3-688B-4EEE-86BD-088F0B28ABB3}") = "Atea.MaintenanceMode.WindowsMP", "Atea.MaintenanceMode.WindowsMP\Atea.MaintenanceMode.WindowsMP.mpproj", "{4B5FC3A4-CAF6-48F7-95AA-7A8FAD466F75}"
 EndProject
 Project("{D4B43EB3-688B-4EEE-86BD-088F0B28ABB3}") = "Atea.MaintenanceMode.CoreMP", "Atea.MaintenanceMode.CoreMP\Atea.MaintenanceMode.CoreMP.mpproj", "{140840DC-2894-4F6D-9399-70555C755063}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Atea.MaintenanceMode.Installer", "Atea.MaintenanceMode.Installer\Atea.MaintenanceMode.Installer.vdproj", "{F84B957D-91E6-4150-BB2A-97C46DAA1285}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,6 +39,10 @@ Global
 		{140840DC-2894-4F6D-9399-70555C755063}.Release|Any CPU.Build.0 = Release|x86
 		{140840DC-2894-4F6D-9399-70555C755063}.Release|x86.ActiveCfg = Release|x86
 		{140840DC-2894-4F6D-9399-70555C755063}.Release|x86.Build.0 = Release|x86
+		{F84B957D-91E6-4150-BB2A-97C46DAA1285}.Debug|Any CPU.ActiveCfg = Debug
+		{F84B957D-91E6-4150-BB2A-97C46DAA1285}.Debug|x86.ActiveCfg = Debug
+		{F84B957D-91E6-4150-BB2A-97C46DAA1285}.Release|Any CPU.ActiveCfg = Release
+		{F84B957D-91E6-4150-BB2A-97C46DAA1285}.Release|x86.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
