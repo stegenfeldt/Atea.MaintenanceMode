@@ -6,39 +6,41 @@
  * 
  * To change this template use Tools | Options | Coding | Edit Standard Headers.
  */
- 
+
 using System.Drawing;
- 
+
 namespace Atea_Request_Maintenance_Mode
 {
-	partial class MainForm
-	{
-		/// <summary>
-		/// Designer variable used to keep track of non-visual components.
-		/// </summary>
-		private System.ComponentModel.IContainer components = null;
-		
-		/// <summary>
-		/// Disposes resources used by the form.
-		/// </summary>
-		/// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-		protected override void Dispose(bool disposing)
-		{
-			if (disposing) {
-				if (components != null) {
-					components.Dispose();
-				}
-			}
-			base.Dispose(disposing);
-		}
-		
-		/// <summary>
-		/// This method is required for Windows Forms designer support.
-		/// Do not change the method contents inside the source code editor. The Forms designer might
-		/// not be able to load this method if it was changed manually.
-		/// </summary>
-		private void InitializeComponent()
-		{
+    partial class MainForm
+    {
+        /// <summary>
+        /// Designer variable used to keep track of non-visual components.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Disposes resources used by the form.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                if (components != null)
+                {
+                    components.Dispose();
+                }
+            }
+            base.Dispose(disposing);
+        }
+
+        /// <summary>
+        /// This method is required for Windows Forms designer support.
+        /// Do not change the method contents inside the source code editor. The Forms designer might
+        /// not be able to load this method if it was changed manually.
+        /// </summary>
+        private void InitializeComponent()
+        {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.cbDuration = new System.Windows.Forms.ComboBox();
@@ -58,7 +60,7 @@ namespace Atea_Request_Maintenance_Mode
             this.lblStatusMessages = new System.Windows.Forms.Label();
             this.epIllegalComment = new System.Windows.Forms.ErrorProvider(this.components);
             this.tmCheckForACK = new System.Windows.Forms.Timer(this.components);
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.coloredProgressBar1 = new Atea_Request_Maintenance_Mode.ColoredProgressBar();
             ((System.ComponentModel.ISupportInitialize)(this.epDuration)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.epReason)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.epIllegalComment)).BeginInit();
@@ -187,11 +189,11 @@ namespace Atea_Request_Maintenance_Mode
             // 
             // lblStatusMessages
             // 
-            this.lblStatusMessages.Font = new System.Drawing.Font("Courier New", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStatusMessages.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblStatusMessages.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.lblStatusMessages.Location = new System.Drawing.Point(33, 505);
+            this.lblStatusMessages.Location = new System.Drawing.Point(33, 478);
             this.lblStatusMessages.Name = "lblStatusMessages";
-            this.lblStatusMessages.Size = new System.Drawing.Size(504, 32);
+            this.lblStatusMessages.Size = new System.Drawing.Size(504, 35);
             this.lblStatusMessages.TabIndex = 12;
             this.lblStatusMessages.Text = "Request sent, waiting for ACK...";
             this.lblStatusMessages.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -203,15 +205,22 @@ namespace Atea_Request_Maintenance_Mode
             // 
             // tmCheckForACK
             // 
-            this.tmCheckForACK.Interval = 5000;
+            this.tmCheckForACK.Interval = 500;
             this.tmCheckForACK.Tick += new System.EventHandler(this.TmCheckForACKTick);
             // 
-            // progressBar1
+            // coloredProgressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(138, 452);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(290, 23);
-            this.progressBar1.TabIndex = 13;
+            this.coloredProgressBar1.BackColor = System.Drawing.SystemColors.Menu;
+            this.coloredProgressBar1.Location = new System.Drawing.Point(138, 452);
+            this.coloredProgressBar1.Maximum = 100;
+            this.coloredProgressBar1.Minimum = 0;
+            this.coloredProgressBar1.Name = "coloredProgressBar1";
+            this.coloredProgressBar1.ProgressBarColor = System.Drawing.Color.Green;
+            this.coloredProgressBar1.Size = new System.Drawing.Size(290, 23);
+            this.coloredProgressBar1.TabIndex = 14;
+            this.coloredProgressBar1.Text = "coloredProgressBar1";
+            this.coloredProgressBar1.Value = 0;
+            this.coloredProgressBar1.Click += new System.EventHandler(this.coloredProgressBar1_Click);
             // 
             // MainForm
             // 
@@ -220,9 +229,9 @@ namespace Atea_Request_Maintenance_Mode
             this.BackColor = System.Drawing.SystemColors.Window;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(570, 547);
+            this.ClientSize = new System.Drawing.Size(570, 523);
             this.ControlBox = false;
-            this.Controls.Add(this.progressBar1);
+            this.Controls.Add(this.coloredProgressBar1);
             this.Controls.Add(this.lblStatusMessages);
             this.Controls.Add(this.btStopMaintenance);
             this.Controls.Add(this.btnCancel);
@@ -252,157 +261,204 @@ namespace Atea_Request_Maintenance_Mode
             this.ResumeLayout(false);
             this.PerformLayout();
 
-		}
-		private System.Windows.Forms.Timer tmCheckForACK;
-		private System.Windows.Forms.ErrorProvider epIllegalComment;
-		private System.Windows.Forms.Label lblStatusMessages;
-		private System.Windows.Forms.ErrorProvider epReason;
-		private System.Windows.Forms.ErrorProvider epDuration;
-		private System.Windows.Forms.Button btStopMaintenance;
-		private System.Windows.Forms.Button btnCancel;
-		private System.Windows.Forms.Button btStartMaintenance;
-		private System.Windows.Forms.TextBox tbCurrentUser;
-		private System.Windows.Forms.Label lblCurrentUser;
-		private System.Windows.Forms.TextBox tbComment;
-		private System.Windows.Forms.Label lblComment;
-		private System.Windows.Forms.ComboBox cbReason;
-		private System.Windows.Forms.Label lblReason;
-		private System.Windows.Forms.Label lblDuration;
-		private System.Windows.Forms.ComboBox cbDuration;
-		private System.Windows.Forms.Label lblMessage;
-		
-		void BtnCancelClick(object sender, System.EventArgs e)
-		{
-			this.Close();
-		}
-		
-		void BtStopMaintenanceClick(object sender, System.EventArgs e)
-		{
-			OpsMMEventLog opsEventlog = new OpsMMEventLog();
-			string comment = tbComment.Text;
-			string userName = tbCurrentUser.Text;
-			if (epIllegalComment.GetError(tbComment) == "") {
-				if (opsEventlog.writeStopEvent("","",comment,userName)){
-					setStatusMessage("Stopping Maintenance Mode\n",STATUS_INFO);
-					tmCheckForACK.Start();
-					btStartMaintenance.Enabled = false;
-					btStopMaintenance.Enabled = false;
-					btnCancel.Text = "&Close";
-				} else {
-					setStatusMessage("Failed to write event! Are you running as administrator?",STATUS_ERROR);
-				}
-			}
-		}
-		
-		void BtStartMaintenanceClick(object sender, System.EventArgs e)
-		{
-			bool allPropertiesSet = false;
-			
-			if (cbDuration.SelectedIndex >= 0){
-				allPropertiesSet = true;
-			} else {
-				epDuration.SetError(cbDuration,"Must select duration!");
-				allPropertiesSet = false;
-			}
-			if (cbReason.SelectedIndex >= 0){
-				allPropertiesSet = true;
-			} else {
-				epReason.SetError(cbReason,"Must select reason!");
-				allPropertiesSet = false;
-			}
-			if (epIllegalComment.GetError(tbComment) != "" 
-			    	|| epReason.GetError(cbReason) != "" 
-			    	|| epDuration.GetError(cbDuration) != "") {
-				allPropertiesSet = false;
-			}
-			
-			// All inputs looks OK, write start command to event log.
-			if (allPropertiesSet) {
-				OpsMMEventLog opsEventlog = new OpsMMEventLog();
-				KeyValuePair kvpDuration = (KeyValuePair) cbDuration.SelectedItem;
-				KeyValuePair kvpReason = (KeyValuePair) cbReason.SelectedItem;
-				string comment = tbComment.Text;
-				string userName = tbCurrentUser.Text;
-				if (opsEventlog.writeStartEvent(kvpDuration.m_objectKey.ToString(),kvpReason.m_objectKey.ToString(),"","",comment,userName)){
-					setStatusMessage("Maintenance mode requested, waiting for confirmation.\n",STATUS_INFO);
-					tmCheckForACK.Start();
-					btStartMaintenance.Enabled = false;
-					btStopMaintenance.Enabled = false;
-					btnCancel.Text = "&Close";
-				} else {
-					setStatusMessage("Failed to write event! Are you running as administrator?",STATUS_ERROR);
-				}
-			}
-		}
-		
-		void CbDurationSelectedIndexChanged(object sender, System.EventArgs e)
-		{
-			epDuration.Clear();
-		}
-		
-		void CbReasonSelectedIndexChanged(object sender, System.EventArgs e)
-		{
-			epReason.Clear();
-			
-		}
-		
-		private void setStatusMessage(string statusText,int statusLevel){
-			Color statusColor;
-			bool boldText = false;
-			switch (statusLevel){
-				case STATUS_INFO: // STATUS_INFO - Gray text
-					statusColor = Color.Gray;
-					break;
-				case STATUS_OK: // STATUS_OK - Green text
-					statusColor = Color.Green;
-					boldText = true;
-					break;
-				case STATUS_WARNING: // STATUS_WARNING - Orange text
-					statusColor = Color.Firebrick;
-					boldText = true;
-					break;
-				case STATUS_ERROR: // STATUS_ERROR - Red text
-					statusColor = Color.Crimson;
-					boldText = true;
-					break;
-				default: // Unknown, assume STATUS_INFO
-					statusColor = Color.Gray;
-					break;
-			}
-			lblStatusMessages.ForeColor = statusColor;
-			lblStatusMessages.Text = statusText;
-			if (boldText) {
-				lblStatusMessages.Font = new Font(lblStatusMessages.Font, FontStyle.Bold);
-			} else {
-				lblStatusMessages.Font = new Font(lblStatusMessages.Font, FontStyle.Regular);
-			}
-		}
-		
-		void TmCheckForACKTick(object sender, System.EventArgs e)
-		{
-			OpsMMEventLog opsEventLog = new OpsMMEventLog();
-			if (opsEventLog.gotAckEvent()) {
-				setStatusMessage("Server is in maintenance mode!\nYou may close this window.", STATUS_OK);
-				btnCancel.Text = "&Close";
-				btnCancel.Focus();
-				tmCheckForACK.Stop();
-				btStartMaintenance.Enabled = true;
-				btStopMaintenance.Enabled = true;
-			} else {
-				setMMTimeout = setMMTimeout - tmCheckForACK.Interval;
-				if (setMMTimeout > 30000) {
-					setStatusMessage(lblStatusMessages.Text + ".",STATUS_INFO);
-				} else if (setMMTimeout > 0) {
-					setStatusMessage(lblStatusMessages.Text + ".",STATUS_WARNING);
-				} else {
-					setStatusMessage("Timed out waiting for maintenance mode.\nPlease contact service desk for assistance.",STATUS_ERROR);
-					tmCheckForACK.Stop();
-					setMMTimeout = MM_TIMEOUT;
-				}
-				
-			}
-		}
+        }
+        private System.Windows.Forms.Timer tmCheckForACK;
+        private System.Windows.Forms.ErrorProvider epIllegalComment;
+        private System.Windows.Forms.Label lblStatusMessages;
+        private System.Windows.Forms.ErrorProvider epReason;
+        private System.Windows.Forms.ErrorProvider epDuration;
+        private System.Windows.Forms.Button btStopMaintenance;
+        private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Button btStartMaintenance;
+        private System.Windows.Forms.TextBox tbCurrentUser;
+        private System.Windows.Forms.Label lblCurrentUser;
+        private System.Windows.Forms.TextBox tbComment;
+        private System.Windows.Forms.Label lblComment;
+        private System.Windows.Forms.ComboBox cbReason;
+        private System.Windows.Forms.Label lblReason;
+        private System.Windows.Forms.Label lblDuration;
+        private System.Windows.Forms.ComboBox cbDuration;
+        private System.Windows.Forms.Label lblMessage;
 
-        private System.Windows.Forms.ProgressBar progressBar1;
+        void BtnCancelClick(object sender, System.EventArgs e)
+        {
+            this.Close();
+        }
+
+        void BtStopMaintenanceClick(object sender, System.EventArgs e)
+        {
+            OpsMMEventLog opsEventlog = new OpsMMEventLog();
+            string comment = tbComment.Text;
+            string userName = tbCurrentUser.Text;
+            if (epIllegalComment.GetError(tbComment) == "")
+            {
+                if (opsEventlog.writeStopEvent("", "", comment, userName))
+                {
+                    setStatusMessage("Stopping Maintenance Mode\n", STATUS_INFO);
+                    tmCheckForACK.Start();
+                    btStartMaintenance.Enabled = false;
+                    btStopMaintenance.Enabled = false;
+                    btnCancel.Text = "&Close";
+                }
+                else
+                {
+                    setStatusMessage("Failed to write event! Are you running as administrator?", STATUS_ERROR);
+                }
+            }
+        }
+
+        void BtStartMaintenanceClick(object sender, System.EventArgs e)
+        {
+            bool allPropertiesSet = false;
+
+            if (cbDuration.SelectedIndex >= 0)
+            {
+                allPropertiesSet = true;
+            }
+            else
+            {
+                epDuration.SetError(cbDuration, "Must select duration!");
+                allPropertiesSet = false;
+            }
+            if (cbReason.SelectedIndex >= 0)
+            {
+                allPropertiesSet = true;
+            }
+            else
+            {
+                epReason.SetError(cbReason, "Must select reason!");
+                allPropertiesSet = false;
+            }
+            if (epIllegalComment.GetError(tbComment) != ""
+                    || epReason.GetError(cbReason) != ""
+                    || epDuration.GetError(cbDuration) != "")
+            {
+                allPropertiesSet = false;
+            }
+
+            // All inputs looks OK, write start command to event log.
+            if (allPropertiesSet)
+            {
+                OpsMMEventLog opsEventlog = new OpsMMEventLog();
+                KeyValuePair kvpDuration = (KeyValuePair)cbDuration.SelectedItem;
+                KeyValuePair kvpReason = (KeyValuePair)cbReason.SelectedItem;
+                string comment = tbComment.Text;
+                string userName = tbCurrentUser.Text;
+                if (opsEventlog.writeStartEvent(kvpDuration.m_objectKey.ToString(), kvpReason.m_objectKey.ToString(), "", "", comment, userName))
+                {
+                    setStatusMessage("", STATUS_INFO);
+                    updateProgressBar(0, MM_TIMEOUT, Color.Green);
+                    tmCheckForACK.Start();
+                    btStartMaintenance.Enabled = false;
+                    btStopMaintenance.Enabled = false;
+                    btnCancel.Text = "&Close";
+                }
+                else
+                {
+                    setStatusMessage("Failed to write event! Are you running as administrator?", STATUS_ERROR);
+                }
+            }
+        }
+
+        void CbDurationSelectedIndexChanged(object sender, System.EventArgs e)
+        {
+            epDuration.Clear();
+        }
+
+        void CbReasonSelectedIndexChanged(object sender, System.EventArgs e)
+        {
+            epReason.Clear();
+
+        }
+
+        /// <summary>
+        /// Updates the Status Message text label
+        /// </summary>
+        /// <param name="statusText"></param>
+        /// <param name="statusLevel"></param>
+        private void setStatusMessage(string statusText, int statusLevel)
+        {
+            Color statusColor;
+            bool boldText = false;
+            switch (statusLevel)
+            {
+                case STATUS_INFO: // STATUS_INFO - Gray text
+                    statusColor = Color.Gray;
+                    break;
+                case STATUS_OK: // STATUS_OK - Green text
+                    statusColor = Color.Green;
+                    boldText = true;
+                    break;
+                case STATUS_WARNING: // STATUS_WARNING - Orange text
+                    statusColor = Color.Firebrick;
+                    boldText = true;
+                    break;
+                case STATUS_ERROR: // STATUS_ERROR - Red text
+                    statusColor = Color.Crimson;
+                    boldText = true;
+                    break;
+                default: // Unknown, assume STATUS_INFO
+                    statusColor = Color.Gray;
+                    break;
+            }
+            lblStatusMessages.ForeColor = statusColor;
+            lblStatusMessages.Text = statusText;
+            if (boldText)
+            {
+                lblStatusMessages.Font = new Font(lblStatusMessages.Font, FontStyle.Bold);
+            }
+            else
+            {
+                lblStatusMessages.Font = new Font(lblStatusMessages.Font, FontStyle.Regular);
+            }
+        }
+
+        /// <summary>
+        /// Simple method to update the progress bar
+        /// </summary>
+        /// <param name="currentValue"></param>
+        /// <param name="maxValue"></param>
+        /// <param name="barColor"></param>
+        private void updateProgressBar(int currentValue, int maxValue, Color barColor)
+        {
+            coloredProgressBar1.Maximum = maxValue;
+            coloredProgressBar1.Value = currentValue;
+            coloredProgressBar1.ProgressBarColor = barColor;
+        }
+
+        void TmCheckForACKTick(object sender, System.EventArgs e)
+        {
+            OpsMMEventLog opsEventLog = new OpsMMEventLog();
+            if (opsEventLog.gotAckEvent())
+            {
+                setStatusMessage("Server is in maintenance mode!\nYou may close this window.", STATUS_OK);
+                updateProgressBar(MM_TIMEOUT, MM_TIMEOUT, Color.Green);
+                btnCancel.Text = "&Close";
+                btnCancel.Focus();
+                tmCheckForACK.Stop();
+                btStartMaintenance.Enabled = true;
+                btStopMaintenance.Enabled = true;
+            } else
+            {
+                setMMTimeout = setMMTimeout - tmCheckForACK.Interval;
+                if (setMMTimeout > 30000)
+                {
+                    updateProgressBar(MM_TIMEOUT - setMMTimeout, MM_TIMEOUT, ATEA_GREEN);
+                }
+                else if (setMMTimeout > 0)
+                {
+                    updateProgressBar(MM_TIMEOUT - setMMTimeout, MM_TIMEOUT, Color.Yellow);
+                }
+                else
+                {
+                    setStatusMessage("Timed out waiting for maintenance mode.\nPlease contact monitoring support for assistance.", STATUS_ERROR);
+                    updateProgressBar(MM_TIMEOUT - setMMTimeout, MM_TIMEOUT, Color.Red);
+                    tmCheckForACK.Stop();
+                    setMMTimeout = MM_TIMEOUT;
+                }
+
+            }
+        }
+        private ColoredProgressBar coloredProgressBar1;
     }
 }
