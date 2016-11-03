@@ -77,13 +77,16 @@
     <DocumentationFile>bin\Release\Request Maintenance Mode.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup>
-    <SignAssembly>true</SignAssembly>
+    <SignAssembly>false</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
     <AssemblyOriginatorKeyFile>AteaST.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestTimestampUrl>http://timestamp.verisign.com/scripts/timstamp.dll</ManifestTimestampUrl>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RunPostBuildEvent>OnOutputUpdated</RunPostBuildEvent>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -178,6 +181,6 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>powershell -File "$(ProjectDir)_Scripts\PostBuild.ps1" "-FilePath " "$(TargetPath)"</PostBuildEvent>
+    <PostBuildEvent>powershell -File "$(ProjectDir)_Scripts\PostBuild.ps1" "-FilePath " "$(TargetPath)" "-SolutionFolder " "$(SolutionDir)"</PostBuildEvent>
   </PropertyGroup>
 </Project>
