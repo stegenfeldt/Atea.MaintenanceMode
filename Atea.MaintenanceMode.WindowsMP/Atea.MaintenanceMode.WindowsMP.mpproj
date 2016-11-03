@@ -6,7 +6,7 @@
     <RootNamespace>Atea.MaintenanceMode.WindowsMP</RootNamespace>
     <Name>Atea.MaintenanceMode.WindowsMP</Name>
     <ManagementPackName>Atea.MaintenanceMode.WindowsMP</ManagementPackName>
-    <Version>1.0.0.0</Version>
+    <Version>1.0.4.0</Version>
     <MpFrameworkVersion>v7.0</MpFrameworkVersion>
     <MpFrameworkProfile>OM</MpFrameworkProfile>
     <ProductVersion>1.1.0.0</ProductVersion>
