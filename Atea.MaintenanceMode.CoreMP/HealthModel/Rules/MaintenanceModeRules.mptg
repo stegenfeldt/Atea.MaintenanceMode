@@ -1,0 +1,35 @@
+<TemplateGroup>
+  <Instances>
+    <Instance ID="Instancead122e8e2c2b461a804a5ac5069aa36f" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.CustomRule" Version="1.0.0.0">
+      <CustomRuleConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <Id>SetMaintenanceModeRule</Id>
+        <DisplayName>Atea Set Maintenance Mode Rule</DisplayName>
+        <Description>Looks for Maintenance Mode requests from the Atea Maintenance Mode Windows MP</Description>
+        <Category>Maintenance</Category>
+        <ConfirmDelivery>false</ConfirmDelivery>
+        <Target>SC!Microsoft.SystemCenter.AllManagementServersPool</Target>
+        <Enabled>true</Enabled>
+        <Remotable>true</Remotable>
+        <Priority>Normal</Priority>
+        <DiscardLevel>100</DiscardLevel>
+        <DataSources>
+          <RuleDataSourceItem>
+            <DataSourceId>Scheduler</DataSourceId>
+            <DataSourceConfig>&lt;IntervalSeconds&gt;60&lt;/IntervalSeconds&gt;&lt;SyncTime /&gt;</DataSourceConfig>
+            <DataSourceType>System!System.SimpleScheduler</DataSourceType>
+          </RuleDataSourceItem>
+        </DataSources>
+        <ConditionDetectionId>CD</ConditionDetectionId>
+        <WriteActions>
+          <RuleWriteActionItem>
+            <WriteActionId>PoSH</WriteActionId>
+            <WriteActionConfig>&lt;ScriptName&gt;Set-MaintenanceMode.ps1&lt;/ScriptName&gt;&lt;ScriptBody&gt;$IncludeFileContent/Scripts/Set-MaintenanceMode.ps1$&lt;/ScriptBody&gt;&lt;Parameters&gt;&lt;/Parameters&gt;&lt;TimeoutSeconds&gt;115&lt;/TimeoutSeconds&gt;</WriteActionConfig>
+            <WriteActionRunAs>SC!Microsoft.SystemCenter.LocalAgentElevatedAccount</WriteActionRunAs>
+            <WriteActionType>Windows!Microsoft.Windows.PowerShellWriteAction</WriteActionType>
+            <WriteActionTarget />
+          </RuleWriteActionItem>
+        </WriteActions>
+      </CustomRuleConfig>
+    </Instance>
+  </Instances>
+</TemplateGroup>

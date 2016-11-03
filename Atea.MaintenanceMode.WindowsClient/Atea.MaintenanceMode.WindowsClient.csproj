@@ -7,8 +7,9 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>Atea_Request_Maintenance_Mode</RootNamespace>
     <AssemblyName>Request Maintenance Mode</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <NoWin32Manifest>False</NoWin32Manifest>
@@ -71,6 +72,15 @@
   <PropertyGroup>
     <ApplicationIcon>construction.ico</ApplicationIcon>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <DocumentationFile>bin\Release\Request Maintenance Mode.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>AteaST.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core">
@@ -88,7 +98,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ColoredProgressBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ColoredProgressBar.Designer.cs">
+      <DependentUpon>ColoredProgressBar.cs</DependentUpon>
+    </Compile>
     <Compile Include="Eventlog.cs" />
+    <Compile Include="IOpsMMEventLog.cs" />
     <Compile Include="KeyValuePair.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -98,15 +115,25 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="app.manifest" />
-    <None Include="ClassDiagram1.cd" />
+    <None Include="AteaST.snk" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">

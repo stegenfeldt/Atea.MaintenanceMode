@@ -23,11 +23,12 @@
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
     <DebugSymbols>false</DebugSymbols>
     <OutputPath>bin\Release\</OutputPath>
-    <DelaySigning>false</DelaySigning>
-    <Company>MyCompany</Company>
-    <Copyright>Copyright (c) MyCompany. All rights reserved.</Copyright>
+    <DelaySigning>False</DelaySigning>
+    <Company>Atea Sverige AB</Company>
+    <Copyright>Copyright (c) Samuel Tegenfeldt, Atea Sverige AB. All rights reserved.</Copyright>
     <DelaySign>false</DelaySign>
-    <AssemblyOriginatorKeyFile />
+    <AssemblyOriginatorKeyFile>AteaST.snk</AssemblyOriginatorKeyFile>
+    <GenerateSealed>True</GenerateSealed>
   </PropertyGroup>
   <ItemGroup>
     <ManagementPackReference Include="Microsoft.SystemCenter.Library">
@@ -50,6 +51,36 @@
       <Alias>Visualization</Alias>
       <PackageToBundle>false</PackageToBundle>
     </ManagementPackReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AteaST.snk">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="HealthModel\Rules\MaintenanceModeRules.mptg">
+      <SubType>Content</SubType>
+      <Generator>FragmentGenerator</Generator>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="HealthModel" />
+    <Folder Include="HealthModel\Rules" />
+    <Folder Include="Presentation" />
+    <Folder Include="Presentation\Advanced" />
+    <Folder Include="Presentation\Advanced\Folders" />
+    <Folder Include="Presentation\Views" />
+    <Folder Include="Scripts" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Scripts\Set-MaintenanceMode.ps1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="HealthModel\Rules\MaintenanceModeRules.mptg.mpx">
+      <SubType>Code</SubType>
+      <DependentUpon>HealthModel\Rules\MaintenanceModeRules.mptg</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Advanced\Folders\AteaMMFolder.mpx">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\VSAC\Microsoft.SystemCenter.OperationsManager.targets" />
 </Project>

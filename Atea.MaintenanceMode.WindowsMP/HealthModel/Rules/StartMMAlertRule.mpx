@@ -1,36 +1,7 @@
-<ManagementPack ContentReadable="true" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-  <Manifest>
-    <Identity>
-      <ID>Atea.Agent.MaintenanceMode</ID>
-      <Version>1.0.0.4</Version>
-    </Identity>
-    <Name>Atea.Agent.MaintenanceMode</Name>
-    <References>
-      <Reference Alias="SC">
-        <ID>Microsoft.SystemCenter.Library</ID>
-        <Version>6.1.7221.0</Version>
-        <PublicKeyToken>31bf3856ad364e35</PublicKeyToken>
-      </Reference>
-      <Reference Alias="Windows">
-        <ID>Microsoft.Windows.Library</ID>
-        <Version>6.1.7221.0</Version>
-        <PublicKeyToken>31bf3856ad364e35</PublicKeyToken>
-      </Reference>
-      <Reference Alias="Health">
-        <ID>System.Health.Library</ID>
-        <Version>6.1.7221.0</Version>
-        <PublicKeyToken>31bf3856ad364e35</PublicKeyToken>
-      </Reference>
-      <Reference Alias="System">
-        <ID>System.Library</ID>
-        <Version>6.1.7221.0</Version>
-        <PublicKeyToken>31bf3856ad364e35</PublicKeyToken>
-      </Reference>
-    </References>
-  </Manifest>
+﻿<ManagementPackFragment SchemaVersion="2.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Monitoring>
     <Rules>
-      <Rule ID="Atea.Agent.StartMMTrigger.Event" Enabled="true" Target="Windows!Microsoft.Windows.Server.Computer" ConfirmDelivery="true" Remotable="true" Priority="Normal" DiscardLevel="100">
+      <Rule ID="Atea.MaintenanceMode.WindowsMP.StartMMAlertRule" Enabled="true" Target="Windows!Microsoft.Windows.Server.Computer" ConfirmDelivery="true" Remotable="true" Priority="Normal" DiscardLevel="100">
         <Category>Alert</Category>
         <DataSources>
           <DataSource ID="DS" TypeID="Windows!Microsoft.Windows.EventProvider">
@@ -69,7 +40,7 @@
             <Priority>0</Priority>
             <Severity>0</Severity>
             <AlertOwner />
-            <AlertMessageId>$MPElement[Name="Atea.Agent.StartMMTrigger.Event.AlertMessage"]$</AlertMessageId>
+            <AlertMessageId>$MPElement[Name="Atea.MaintenanceMode.WindowsMP.StartMMAlertRule.AlertMessage"]$</AlertMessageId>
             <AlertParameters>
               <AlertParameter1>$Data/EventDescription$</AlertParameter1>
             </AlertParameters>
@@ -90,33 +61,21 @@
   </Monitoring>
   <Presentation>
     <StringResources>
-      <StringResource ID="Atea.Agent.StartMMTrigger.Event.AlertMessage" />
+      <StringResource ID="Atea.MaintenanceMode.WindowsMP.StartMMAlertRule.AlertMessage" />
     </StringResources>
   </Presentation>
   <LanguagePacks>
     <LanguagePack ID="ENU" IsDefault="true">
       <DisplayStrings>
-        <DisplayString ElementID="Atea.Agent.MaintenanceMode">
-          <Name>Atea Agent Maintenance Mode</Name>
-          <Description>Utility management pack that trigger an informational alert on a specific EventID. Powershell scripts on the Management Servers react to this event and sets the alerting agent in maintenance mode for a specified time.</Description>
-        </DisplayString>
-        <DisplayString ElementID="Atea.Agent.StartMMTrigger.Event">
-          <Name>Atea Agent Maintenance Mode Trigger event</Name>
+        <DisplayString ElementID="Atea.MaintenanceMode.WindowsMP.StartMMAlertRule">
+          <Name>Atea Maintenance Mode for Windows Start Trigger event</Name>
           <Description>Event based alert that trigger maintenance mode.</Description>
         </DisplayString>
-        <DisplayString ElementID="Atea.Agent.StartMMTrigger.Event.AlertMessage">
-          <Name>Agent Maintenance Mode has been requested</Name>
-          <Description>{0}</Description>
-        </DisplayString>
-      </DisplayStrings>
-    </LanguagePack>
-    <LanguagePack ID="SVE" IsDefault="false">
-      <DisplayStrings>
-        <DisplayString ElementID="Atea.Agent.StartMMTrigger.Event.AlertMessage">
-          <Name>Agent Maintenance Mode has been requested</Name>
+        <DisplayString ElementID="Atea.MaintenanceMode.WindowsMP.StartMMAlertRule.AlertMessage">
+          <Name>Maintenance Mode on Windows Server has been requested</Name>
           <Description>{0}</Description>
         </DisplayString>
       </DisplayStrings>
     </LanguagePack>
   </LanguagePacks>
-</ManagementPack>
+</ManagementPackFragment>
