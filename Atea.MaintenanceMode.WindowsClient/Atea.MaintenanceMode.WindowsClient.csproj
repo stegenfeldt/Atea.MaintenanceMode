@@ -181,6 +181,6 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>powershell -File "$(ProjectDir)_Scripts\PostBuild.ps1" "-FilePath " "$(TargetPath)" "-SolutionFolder " "$(SolutionDir)"</PostBuildEvent>
+    <PostBuildEvent>powershell -NoProfile -ExecutionPolicy RemoteSigned -File "$(ProjectDir)_Scripts\PostBuild.ps1" "-FilePath " "$(TargetPath)" "-SolutionFolder " "$(SolutionDir)"</PostBuildEvent>
   </PropertyGroup>
 </Project>

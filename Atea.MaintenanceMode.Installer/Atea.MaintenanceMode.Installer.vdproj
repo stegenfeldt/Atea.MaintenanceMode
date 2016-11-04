@@ -130,7 +130,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Request Maintenance Mode, Version=1.0.4.30387, Culture=neutral, processorArchitecture=x86"
+            "AssemblyAsmDisplayName" = "8:Request Maintenance Mode, Version=1.0.4.17945, Culture=neutral, processorArchitecture=x86"
                 "ScatterAssemblies"
                 {
                     "_9A3BEA3CD3154A35812CD2DDE664D69D"
@@ -257,7 +257,7 @@
         "UseSystemSearchPath" = "11:TRUE"
         "TargetPlatform" = "3:0"
         "PreBuildEvent" = "8:"
-        "PostBuildEvent" = "8:powershell -File \"$(ProjectDir)_Scripts\\PostBuild.ps1\" \"-FilePath \" \"$(BuiltOuputPath)\""
+        "PostBuildEvent" = "8:powershell -NoProfile -ExecutionPolicy RemoteSigned -File \"$(ProjectDir)_Scripts\\PostBuild.ps1\" \"-FilePath \" \"$(BuiltOuputPath)\""
         "RunPostBuildEvent" = "3:0"
         }
         "Registry"
