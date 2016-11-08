@@ -39,7 +39,7 @@
         "DisplayName" = "8:Debug"
         "IsDebugOnly" = "11:TRUE"
         "IsReleaseOnly" = "11:FALSE"
-        "OutputFilename" = "8:..\\Release\\Windows Client Installer\\AteaMMInstaller.msi"
+        "OutputFilename" = "8:..\\Downloads\\Windows Client Installer\\AteaMMInstaller.msi"
         "PackageFilesAs" = "3:2"
         "PackageFileSize" = "3:-2147483648"
         "CabType" = "3:1"
@@ -71,7 +71,7 @@
         "DisplayName" = "8:Release"
         "IsDebugOnly" = "11:FALSE"
         "IsReleaseOnly" = "11:TRUE"
-        "OutputFilename" = "8:..\\Release\\Windows Client Installer\\AteaMMInstaller.msi"
+        "OutputFilename" = "8:..\\Downloads\\Windows Client Installer\\AteaMMInstaller.msi"
         "PackageFilesAs" = "3:2"
         "PackageFileSize" = "3:-2147483648"
         "CabType" = "3:1"
@@ -139,7 +139,7 @@
                     "Attributes" = "3:512"
                     }
                 }
-            "SourcePath" = "8:..\\Release\\Request Maintenance Mode.exe"
+            "SourcePath" = "8:..\\Downloads\\Request Maintenance Mode.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_538FDBD07956482A9D3C398F5FCAA812"
@@ -159,7 +159,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_A9B124084AE948F88D49DD1A4EAE64C0"
             {
-            "SourcePath" = "8:..\\Release\\Request Maintenance Mode.exe.config"
+            "SourcePath" = "8:..\\Downloads\\Request Maintenance Mode.exe.config"
             "TargetName" = "8:Request Maintenance Mode.exe.config"
             "Tag" = "8:"
             "Folder" = "8:_538FDBD07956482A9D3C398F5FCAA812"
