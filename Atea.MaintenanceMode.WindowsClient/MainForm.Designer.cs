@@ -3,7 +3,7 @@
  * User: saper
  * Date: 2013-01-29
  * Time: 15:21
- * 
+ *
  * To change this template use Tools | Options | Coding | Edit Standard Headers.
  */
 
@@ -65,9 +65,9 @@ namespace Atea_Request_Maintenance_Mode
             ((System.ComponentModel.ISupportInitialize)(this.epReason)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.epIllegalComment)).BeginInit();
             this.SuspendLayout();
-            // 
+            //
             // cbDuration
-            // 
+            //
             this.cbDuration.DisplayMember = "30";
             this.cbDuration.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbDuration.Location = new System.Drawing.Point(138, 317);
@@ -75,9 +75,9 @@ namespace Atea_Request_Maintenance_Mode
             this.cbDuration.Size = new System.Drawing.Size(290, 21);
             this.cbDuration.TabIndex = 2;
             this.cbDuration.SelectedIndexChanged += new System.EventHandler(this.CbDurationSelectedIndexChanged);
-            // 
+            //
             // lblMessage
-            // 
+            //
             this.lblMessage.BackColor = System.Drawing.SystemColors.Info;
             this.lblMessage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblMessage.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -88,67 +88,67 @@ namespace Atea_Request_Maintenance_Mode
             this.lblMessage.TabIndex = 0;
             this.lblMessage.Text = resources.GetString("lblMessage.Text");
             this.lblMessage.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
+            //
             // lblDuration
-            // 
+            //
             this.lblDuration.Location = new System.Drawing.Point(32, 320);
             this.lblDuration.Name = "lblDuration";
             this.lblDuration.Size = new System.Drawing.Size(100, 23);
             this.lblDuration.TabIndex = 1;
             this.lblDuration.Text = "&Duration:";
-            // 
+            //
             // lblReason
-            // 
+            //
             this.lblReason.Location = new System.Drawing.Point(33, 347);
             this.lblReason.Name = "lblReason";
             this.lblReason.Size = new System.Drawing.Size(100, 23);
             this.lblReason.TabIndex = 3;
             this.lblReason.Text = "&Reason:";
-            // 
+            //
             // cbReason
-            // 
+            //
             this.cbReason.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbReason.Location = new System.Drawing.Point(138, 344);
             this.cbReason.Name = "cbReason";
             this.cbReason.Size = new System.Drawing.Size(290, 21);
             this.cbReason.TabIndex = 4;
             this.cbReason.SelectedIndexChanged += new System.EventHandler(this.CbReasonSelectedIndexChanged);
-            // 
+            //
             // lblComment
-            // 
+            //
             this.lblComment.Location = new System.Drawing.Point(33, 374);
             this.lblComment.Name = "lblComment";
             this.lblComment.Size = new System.Drawing.Size(100, 23);
             this.lblComment.TabIndex = 5;
             this.lblComment.Text = "C&omment:";
-            // 
+            //
             // tbComment
-            // 
+            //
             this.tbComment.Location = new System.Drawing.Point(138, 371);
             this.tbComment.Name = "tbComment";
             this.tbComment.Size = new System.Drawing.Size(290, 20);
             this.tbComment.TabIndex = 6;
             this.tbComment.TextChanged += new System.EventHandler(this.TbCommentTextChanged);
-            // 
+            //
             // lblCurrentUser
-            // 
+            //
             this.lblCurrentUser.Location = new System.Drawing.Point(33, 400);
             this.lblCurrentUser.Name = "lblCurrentUser";
             this.lblCurrentUser.Size = new System.Drawing.Size(100, 23);
             this.lblCurrentUser.TabIndex = 7;
             this.lblCurrentUser.Text = "Current User:";
-            // 
+            //
             // tbCurrentUser
-            // 
+            //
             this.tbCurrentUser.Location = new System.Drawing.Point(138, 397);
             this.tbCurrentUser.Name = "tbCurrentUser";
             this.tbCurrentUser.ReadOnly = true;
             this.tbCurrentUser.Size = new System.Drawing.Size(290, 20);
             this.tbCurrentUser.TabIndex = 8;
             this.tbCurrentUser.TabStop = false;
-            // 
+            //
             // btStartMaintenance
-            // 
+            //
             this.btStartMaintenance.Location = new System.Drawing.Point(138, 423);
             this.btStartMaintenance.Name = "btStartMaintenance";
             this.btStartMaintenance.Size = new System.Drawing.Size(110, 23);
@@ -156,9 +156,9 @@ namespace Atea_Request_Maintenance_Mode
             this.btStartMaintenance.Text = "&Start Maintenance";
             this.btStartMaintenance.UseVisualStyleBackColor = true;
             this.btStartMaintenance.Click += new System.EventHandler(this.BtStartMaintenanceClick);
-            // 
+            //
             // btnCancel
-            // 
+            //
             this.btnCancel.Location = new System.Drawing.Point(462, 424);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
@@ -166,9 +166,9 @@ namespace Atea_Request_Maintenance_Mode
             this.btnCancel.Text = "&Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.BtnCancelClick);
-            // 
+            //
             // btStopMaintenance
-            // 
+            //
             this.btStopMaintenance.Location = new System.Drawing.Point(254, 423);
             this.btStopMaintenance.Name = "btStopMaintenance";
             this.btStopMaintenance.Size = new System.Drawing.Size(110, 23);
@@ -176,19 +176,19 @@ namespace Atea_Request_Maintenance_Mode
             this.btStopMaintenance.Text = "Stop &Maintenance";
             this.btStopMaintenance.UseVisualStyleBackColor = true;
             this.btStopMaintenance.Click += new System.EventHandler(this.BtStopMaintenanceClick);
-            // 
+            //
             // epDuration
-            // 
+            //
             this.epDuration.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.AlwaysBlink;
             this.epDuration.ContainerControl = this;
-            // 
+            //
             // epReason
-            // 
+            //
             this.epReason.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.AlwaysBlink;
             this.epReason.ContainerControl = this;
-            // 
+            //
             // lblStatusMessages
-            // 
+            //
             this.lblStatusMessages.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblStatusMessages.ForeColor = System.Drawing.SystemColors.GrayText;
             this.lblStatusMessages.Location = new System.Drawing.Point(33, 478);
@@ -197,19 +197,19 @@ namespace Atea_Request_Maintenance_Mode
             this.lblStatusMessages.TabIndex = 12;
             this.lblStatusMessages.Text = "Request sent, waiting for ACK...";
             this.lblStatusMessages.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
+            //
             // epIllegalComment
-            // 
+            //
             this.epIllegalComment.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.epIllegalComment.ContainerControl = this;
-            // 
+            //
             // tmCheckForACK
-            // 
+            //
             this.tmCheckForACK.Interval = 500;
             this.tmCheckForACK.Tick += new System.EventHandler(this.TmCheckForACKTick);
-            // 
+            //
             // coloredProgressBar1
-            // 
+            //
             this.coloredProgressBar1.BackColor = System.Drawing.SystemColors.Menu;
             this.coloredProgressBar1.Location = new System.Drawing.Point(138, 452);
             this.coloredProgressBar1.Maximum = 100;
@@ -221,9 +221,9 @@ namespace Atea_Request_Maintenance_Mode
             this.coloredProgressBar1.Text = "coloredProgressBar1";
             this.coloredProgressBar1.Value = 0;
             this.coloredProgressBar1.Click += new System.EventHandler(this.coloredProgressBar1_Click);
-            // 
+            //
             // MainForm
-            // 
+            //
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
@@ -441,13 +441,13 @@ namespace Atea_Request_Maintenance_Mode
             } else
             {
                 setMMTimeout = setMMTimeout - tmCheckForACK.Interval;
-                if (setMMTimeout > 30000)
+                if (setMMTimeout > 60000)
                 {
                     updateProgressBar(MM_TIMEOUT - setMMTimeout, MM_TIMEOUT, ATEA_GREEN);
                 }
                 else if (setMMTimeout > 0)
                 {
-                    updateProgressBar(MM_TIMEOUT - setMMTimeout, MM_TIMEOUT, Color.Yellow);
+                    updateProgressBar(MM_TIMEOUT - setMMTimeout, MM_TIMEOUT, Color.Gold);
                 }
                 else
                 {
