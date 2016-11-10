@@ -8,5 +8,5 @@ This project is uploaded to Github under the MIT-license, so feel free to fork a
 
 ## Acknowledgements and Credits
 
-Inspired by, and initially based on [Natasha Heil's](https://systemcentertipps.wordpress.com/) [management pack](http://www.systemcentercentral.com/pack-catalog/sample-agent-maintenance-mode-2012-mp/), although the formatting of the eventlog message is pretty much the only thing left.
-Go pay her a visit, her blog is full of usefull System Center stuff!
+Inspired by, and initially based on [Natasha Heil's](https://systemcentertipps.wordpress.com/) [management pack](http://www.systemcentercentral.com/pack-catalog/sample-agent-maintenance-mode-2012-mp/).
+Go pay her a visit, her blog is full of usefull System Center stuff, or follow her on twitter [@NatasciaHeil](https://twitter.com/NatasciaHeil)!
