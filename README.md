@@ -15,4 +15,4 @@ The solution also uses the Auto Deploy extension to automatically copy build art
 ## Acknowledgements and Credits
 
 Inspired by, and initially based on [Natasha Heil's](https://systemcentertipps.wordpress.com/) [management pack](http://www.systemcentercentral.com/pack-catalog/sample-agent-maintenance-mode-2012-mp/).
-Go pay her a visit, her blog is full of usefull System Center stuff, or follow her on twitter [@NatasciaHeil](https://twitter.com/NatasciaHeil)!
+Go pay her a visit, her blog is full of usefull System Center stuff, or follow her on twitter [@NatasciaHeil](https://twitter.com/NatasciaHeil)! Permission to share under MIT has been given by Natascia.
