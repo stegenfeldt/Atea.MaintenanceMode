@@ -292,7 +292,7 @@ namespace Atea_Request_Maintenance_Mode
             string userName = tbCurrentUser.Text;
             if (epIllegalComment.GetError(tbComment) == "")
             {
-                if (opsEventlog.writeStopEvent("", "", comment, userName))
+                if (opsEventlog.WriteStopEvent("", "", comment, userName))
                 {
                     setStatusMessage("Stopping Maintenance Mode\n", STATUS_INFO);
                     tmCheckForACK.Start();
@@ -344,7 +344,7 @@ namespace Atea_Request_Maintenance_Mode
                 KeyValuePair kvpReason = (KeyValuePair)cbReason.SelectedItem;
                 string comment = tbComment.Text;
                 string userName = tbCurrentUser.Text;
-                if (opsEventlog.writeStartEvent(kvpDuration.m_objectKey.ToString(), kvpReason.m_objectKey.ToString(), "", "", comment, userName))
+                if (opsEventlog.WriteStartEvent(kvpDuration.m_objectKey.ToString(), kvpReason.m_objectKey.ToString(), "", "", comment, userName))
                 {
                     setStatusMessage("", STATUS_INFO);
                     updateProgressBar(0, MM_TIMEOUT, Color.Green);
@@ -429,7 +429,7 @@ namespace Atea_Request_Maintenance_Mode
         void TmCheckForACKTick(object sender, System.EventArgs e)
         {
             OpsMMEventLog opsEventLog = new OpsMMEventLog();
-            if (opsEventLog.gotAckEvent())
+            if (opsEventLog.GotAckEvent())
             {
                 setStatusMessage("Server is in maintenance mode!\nYou may close this window.", STATUS_OK);
                 updateProgressBar(MM_TIMEOUT, MM_TIMEOUT, Color.Green);

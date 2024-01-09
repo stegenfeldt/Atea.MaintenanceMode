@@ -9,7 +9,7 @@
         /// Has an ACK event been found?
         /// </summary>
         /// <returns>true/false</returns>
-        bool gotAckEvent();
+        bool GotAckEvent();
 
         /// <summary>
         /// Write the start event
@@ -21,7 +21,7 @@
         /// <param name="Comment"></param>
         /// <param name="Username"></param>
         /// <returns>true/false</returns>
-        bool writeStartEvent(string Duration, string Reason, string opsClass, string opsInstance, string Comment, string Username);
+        bool WriteStartEvent(string Duration, string Reason, string opsClass, string opsInstance, string Comment, string Username);
 
         /// <summary>
         /// Write the stop event
@@ -31,6 +31,6 @@
         /// <param name="Comment"></param>
         /// <param name="Username"></param>
         /// <returns>true/false</returns>
-        bool writeStopEvent(string opsClass, string opsInstance, string Comment, string Username);
+        bool WriteStopEvent(string opsClass, string opsInstance, string Comment, string Username);
     }
 }

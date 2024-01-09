@@ -45,7 +45,7 @@ namespace Atea_Request_Maintenance_Mode
         /// <param name="Comment">Descriptive comment on the purpose of the maintenance mode.</param>
         /// <param name="Username">The requesting user.</param>
         /// <returns>bool true if successful, false if not</returns>
-        public bool writeStartEvent(string Duration, string Reason, string opsClass, string opsInstance, string Comment, string Username)
+        public bool WriteStartEvent(string Duration, string Reason, string opsClass, string opsInstance, string Comment, string Username)
         {
 
             bool eventCreated = false;
@@ -85,7 +85,7 @@ namespace Atea_Request_Maintenance_Mode
         /// <param name="Comment">Descriptive comment on why the maintenance mode are stopped.</param>
         /// <param name="Username">The requesting user.</param>
         /// <returns>bool true if successful, false if not</returns>
-        public bool writeStopEvent(string opsClass, string opsInstance, string Comment, string Username)
+        public bool WriteStopEvent(string opsClass, string opsInstance, string Comment, string Username)
         {
             bool eventCreated = false;
             Comment = Comment + ":" + Username + ":" + DateTime.Now;
@@ -110,7 +110,7 @@ namespace Atea_Request_Maintenance_Mode
         /// Search the Operations Manager event log for eventId 1215 which indicates
         /// that maintenance mode has started.
         /// </summary>
-        public bool gotAckEvent()
+        public bool GotAckEvent()
         {
             bool gotAck = false;
 

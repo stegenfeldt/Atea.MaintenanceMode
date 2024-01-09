@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Atea.MaintenanceMode.WindowsClient", "Atea.MaintenanceMode.WindowsClient\Atea.MaintenanceMode.WindowsClient.csproj", "{36A371D2-3458-4CB6-8101-AEC1A5C80C63}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Atea.MaintenanceMode.WindowsClient", "Atea.MaintenanceMode.WindowsClient\Atea.MaintenanceMode.WindowsClient.csproj", "{36A371D2-3458-4CB6-8101-AEC1A5C80C63}"
 	ProjectSection(ProjectDependencies) = postProject
 		{4B5FC3A4-CAF6-48F7-95AA-7A8FAD466F75} = {4B5FC3A4-CAF6-48F7-95AA-7A8FAD466F75}
 		{140840DC-2894-4F6D-9399-70555C755063} = {140840DC-2894-4F6D-9399-70555C755063}
